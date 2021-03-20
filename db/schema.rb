@@ -29,9 +29,11 @@ ActiveRecord::Schema.define(version: 2021_03_20_092957) do
   create_table "rooms", force: :cascade do |t|
     t.string "base"
     t.integer "status"
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["base"], name: "index_rooms_on_base"
+    t.index ["user_id"], name: "index_rooms_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -44,4 +46,5 @@ ActiveRecord::Schema.define(version: 2021_03_20_092957) do
 
   add_foreign_key "cards", "rooms"
   add_foreign_key "cards", "users"
+  add_foreign_key "rooms", "users"
 end

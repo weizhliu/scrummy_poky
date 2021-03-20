@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :cards
+  has_many :rooms
 
   before_create :generate_uuid
 
