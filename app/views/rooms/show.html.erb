@@ -1,3 +1,16 @@
 show
 <%= @room.id %>
 <%= render @user %>
+<br>
+<%= turbo_stream_from @room %>
+<div id="cards">
+  <%= render @room.cards %>
+</div>
+<br>
+<% Card::POINTS.each do |point| %>
+  <%= form_with scope: :card, url: room_cards_path(@room.base) do |form| %>
+    <%= form.hidden_field :point, value: point %>
+    <%= form.submit point, class: 'w-20' %>
+  <% end %>
+  <br>
+<% end %>
