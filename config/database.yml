@@ -23,13 +23,13 @@ default: &default
 
 development:
   <<: *default
-  database: scrum_poker_development
+  database: scrummy_poky_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user running Rails.
-  #username: scrum_poker
+  #username: scrummy_poky
 
   # The password associated with the postgres role (username).
   #password:
@@ -57,7 +57,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: scrum_poker_test
+  database: scrummy_poky_test
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -81,6 +81,6 @@ test:
 #
 production:
   <<: *default
-  database: scrum_poker_production
-  username: scrum_poker
-  password: <%= ENV['SCRUM_POKER_DATABASE_PASSWORD'] %>
+  database: scrummy_poky_production
+  username: scrummy_poky
+  password: <%= ENV['SCRUMMY_POKY_DATABASE_PASSWORD'] %>
