@@ -1,9 +1,13 @@
 <div id="<%= dom_id room %>">
-  Status:
-  <%= room.status %>
-  <% if room.open? %>
-    <%= button_to 'Reveal', reveal_room_path(room.base) %>
-  <% else %>
-    <%= button_to 'Restart', restart_room_path(room.base) %>
+  <%= turbo_frame_tag 'room_status' do %>
+    <div class="text-center my-4">
+      <% if room.open? %>
+        <%= button_to 'Reveal!', reveal_room_path(room.base), class: 'bg-blue-500 hover:bg-blue-400 text-white py-2 text-xl rounded-xl mb-2 px-8 shadow' %>
+        <%= @room_message.presence || 'Pick one card 👇' %>
+      <% else %>
+        <%= button_to 'Restart!', restart_room_path(room.base), class: 'bg-gray-500 hover:bg-gray-400 text-white py-2 text-xl rounded-xl mb-2 px-8 shadow' %>
+        Average: <%= room.average_point %>
+      <% end %>
+    </div>
   <% end %>
 </div>

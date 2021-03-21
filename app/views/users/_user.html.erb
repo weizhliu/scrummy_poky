@@ -1,8 +1,11 @@
 <%= turbo_frame_tag 'user' do %>
   <% if user.name %>
-    <%= user.name %>
-    <%= link_to 'Edit', edit_user_path(user) %>
+    <div class="text-xl text-blue-700">
+      <%= user.name %>
+      <%= link_to '✏️', edit_user_path(user) %>
+    </div>
   <% else %>
     <%= render 'users/form', user: user %>
   <% end %>
 <% end %>
+

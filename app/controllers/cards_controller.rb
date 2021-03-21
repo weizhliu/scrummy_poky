@@ -8,8 +8,10 @@ class CardsController < ApplicationController
     if card.present?
       card.update(card_params)
     else
-      @room.cards.create(card_params.merge(user: @user))
+      card = @room.cards.create(card_params.merge(user: @user))
     end
+    @user.update(last_room: @room.id)
+    render partial: 'rooms/hand', locals: { room: @room, card: card }
   end
 
   private

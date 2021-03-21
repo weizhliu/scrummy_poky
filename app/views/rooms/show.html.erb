@@ -1,19 +1,31 @@
-show
-<%= @room.id %>
-<%= render @user %>
-<br>
-<%= turbo_stream_from [@room, 'status']  %>
-  <%= render @room %>
-<br>
-<%= turbo_stream_from @room %>
-<div id="cards">
-  <%= render @room.cards %>
+<div class="flex flex-col h-screen">
+  <div class="bg-white h-20 flex justify-between items-center px-8 mb-4 lg:mx-12 shadow lg:rounded-b-2xl">
+    <div class="text-3xl font-serif text-blue-600">
+      <%= link_to 'ScrumyPoky 🂡', root_path %>
+    </div>
+    <div>
+      <span class="text-blue-700">Invite Link</span>
+      <span class="select-all bg-gray-100 p-2 text-sm">
+        <%= request.url %>
+      </span>
+    </div>
+    <div>
+      <%= render @user %>
+    </div>
+  </div>
+  <div class="flex flex-col flex-grow">
+    <%= turbo_stream_from @room %>
+    <div class="flex-grow bg-blue-100 flex items-center justify-center lg:mx-12 lg:my-4 lg:rounded-2xl">
+      <div id="cards" class="grid grid-cols-5 gap-1 lg:gap-4">
+        <%= render @room.cards %>
+      </div>
+    </div>
+    <div class="mx-auto">
+      <%= turbo_stream_from [@room, 'status']  %>
+      <%= render @room %>
+    </div>
+  </div>
+  <div>
+    <%= render 'hand', room: @room, card: @card %>
+  </div>
 </div>
-<br>
-<% Card::POINTS.each do |point| %>
-  <%= form_with scope: :card, url: room_cards_path(@room.base) do |form| %>
-    <%= form.hidden_field :point, value: point %>
-    <%= form.submit point, class: 'w-20' %>
-  <% end %>
-  <br>
-<% end %>

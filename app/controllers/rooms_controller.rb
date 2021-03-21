@@ -4,6 +4,7 @@ class RoomsController < ApplicationController
 
   def index
     @new_room = Room.new
+    @last_room = Room.find_by(id: @user.last_room)
   end
 
   def create
@@ -11,9 +12,15 @@ class RoomsController < ApplicationController
     redirect_to room_path(room.base)
   end
 
-  def show; end
+  def show
+    @card = @room.cards.find_by(user: @user)
+  end
 
   def reveal
+    if @room.cards.empty?
+      @room_message = '🤔 Pick a card first!'
+      return render @room
+    end
     @room.end!
     @room.cards.each(&:reveal!)
   end
@@ -21,6 +28,11 @@ class RoomsController < ApplicationController
   def restart
     @room.open!
     @room.cards.destroy_all
+    Turbo::StreamsChannel.broadcast_replace_later_to(
+      [@room, 'hand_reset'],
+      target: 'hand',
+      partial: 'rooms/hand', locals: { room: @room, card: nil }
+    )
   end
 
   private

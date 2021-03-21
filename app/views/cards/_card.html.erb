@@ -1,6 +1,11 @@
-<div id="<%= dom_id card %>">
-  <%= card.point %>
-  <%= card.status %>
-  <%= turbo_stream_from [card.user, 'name_tag'] %>
-  <%= render 'users/name_tag', user: card.user %>
+<div id="<%= dom_id card %>" class="flex flex-col">
+  <div class="border-4 border-white rounded-2xl shadow mx-auto">
+    <div id="<%= 'card-back' if card.fold? %>" class="w-16 h-24 lg:w-20 lg:h-28 text-center bg-white flex flex-col justify-center border-4 border-blue-500 rounded-xl text-2xl lg:text-3xl text-blue-500 font-bold">
+      <%= card.point if card.reveal? %>
+    </div>
+  </div>
+  <div class="text-center">
+    <%= turbo_stream_from [card.user, 'name_tag'] %>
+    <%= render 'users/name_tag', user: card.user %>
+  </div>
 </div>
