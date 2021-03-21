@@ -2,6 +2,8 @@ class CardsController < ApplicationController
   before_action :set_user, :set_room
 
   def create
+    return if @room.end?
+
     card = @room.cards.find_by(user: @user)
     if card.present?
       card.update(card_params)

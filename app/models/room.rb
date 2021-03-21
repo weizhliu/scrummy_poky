@@ -5,6 +5,7 @@ class Room < ApplicationRecord
   before_create :generate_base
 
   enum status: %i[open end], _default: :open
+  after_update_commit -> { broadcast_replace_later_to [self, 'status'] }
 
   def generate_base
     loop do

@@ -2,6 +2,9 @@ show
 <%= @room.id %>
 <%= render @user %>
 <br>
+<%= turbo_stream_from [@room, 'status']  %>
+  <%= render @room %>
+<br>
 <%= turbo_stream_from @room %>
 <div id="cards">
   <%= render @room.cards %>

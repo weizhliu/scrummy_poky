@@ -1,5 +1,6 @@
 <div id="<%= dom_id card %>">
   <%= card.point %>
   <%= card.status %>
-  <%= card.user.name %>
+  <%= turbo_stream_from [card.user, 'name_tag'] %>
+  <%= render 'users/name_tag', user: card.user %>
 </div>

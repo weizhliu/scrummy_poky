@@ -1,0 +1,9 @@
+<div id="<%= dom_id room %>">
+  Status:
+  <%= room.status %>
+  <% if room.open? %>
+    <%= button_to 'Reveal', reveal_room_path(room.base) %>
+  <% else %>
+    <%= button_to 'Restart', restart_room_path(room.base) %>
+  <% end %>
+</div>
