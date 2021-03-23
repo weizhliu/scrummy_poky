@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: scrummy_poky_production
-  username: scrummy_poky
-  password: <%= ENV['SCRUMMY_POKY_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>

@@ -49,7 +49,7 @@
     <orderEntry type="library" scope="PROVIDED" name="capistrano-bundler (v2.0.1, asdf: 3.0.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="capistrano-passenger (v0.2.0, asdf: 3.0.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="capistrano-rails (v1.6.1, asdf: 3.0.0) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="capistrano-rvm (v0.1.2, asdf: 3.0.0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="capistrano-rbenv (v2.2.0, asdf: 3.0.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="concurrent-ruby (v1.1.8, asdf: 3.0.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="crass (v1.0.6, asdf: 3.0.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="erubi (v1.10.0, asdf: 3.0.0) [gem]" level="application" />
