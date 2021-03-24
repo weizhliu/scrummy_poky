@@ -1,14 +1,14 @@
 <div class="text-center items-center flex flex-col h-screen justify-center">
   <div class="mb-20 text-blue-600">
     <h1 class="text-6xl font-serif mb-4">ScrummyPoky 🂡</h1>
-    <p>A simple scrum poker made by Rails and HOTWIRE</p>
+    <p>A simple scrum poker made with Rails and HOTWIRE</p>
 
   </div>
   <%= form_with model: @new_room do |form| %>
     <%= form.submit 'Start a new game', class: 'cursor-pointer mb-4 rounded-2xl p-3 bg-blue-500 hover:bg-blue-400 text-white text-lg shadow' %>
   <% end %>
   <% if @last_room.present? %>
-    <%= link_to 'Load last game', room_path(@last_room.base), class: 'mb-4 rounded-2xl p-3 bg-blue-500 hover:bg-blue-400 text-white text-lg shadow' %>
+    <%= link_to 'Load last game', room_path(@last_room.base), 'data-turbo': "false", class: 'mb-4 rounded-2xl p-3 bg-blue-500 hover:bg-blue-400 text-white text-lg shadow' %>
   <% end %>
   <%= link_to 'Source code', 'https://github.com/uitsing/scrummy_poky', class: 'mb-4 rounded-2xl p-3 bg-blue-500 hover:bg-blue-400 text-white text-lg shadow' %>
 </div>
