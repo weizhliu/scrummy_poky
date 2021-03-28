@@ -6,7 +6,20 @@
         <%= @room_message.presence || 'Pick one card 👇' %>
       <% else %>
         <%= button_to 'Restart!', restart_room_path(room.base), class: 'bg-gray-500 hover:bg-gray-400 text-white py-2 text-xl rounded-xl mb-2 px-8 shadow' %>
-        Average: <%= room.average_point %>
+        👆 Start a new round
+        <div class="bg-gray-50 h-56 lg:h-40 w-full absolute left-0 flex justify-center">
+          <div class="lg:flex">
+            <div class="bg-gray-100 p-1 lg:m-2 flex lg:w-80 justify-center">
+              <div class="grid grid-rows-5 grid-flow-col auto-cols-auto gap-1 lg:gap-2">
+                <%= render partial: 'rooms/analysis', collection: room.vote_analysis, as: 'group' %>
+              </div>
+            </div>
+            <div class="bg-gray-100 p-1 lg:w-80 lg:m-2 flex items-center justify-center lg:flex-col">
+              <h4 class="text-gray-500 text-xl">Average:</h4>
+              <p class="text-blue-700 text-2xl"><%= room.average_point %></p>
+            </div>
+          </div>
+        </div>
       <% end %>
     </div>
   <% end %>
