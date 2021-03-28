@@ -1,15 +1,12 @@
 <div class="flex flex-col h-screen">
-  <div class="bg-white h-20 flex justify-between items-center px-8 mb-4 lg:mx-12 shadow lg:rounded-b-2xl">
-    <div class="text-3xl font-serif text-blue-600">
+  <div class="bg-white h-20 grid grid-cols-2 lg:grid-cols-6 items-center px-8 mb-4 lg:mx-12 shadow lg:rounded-b-2xl">
+    <div class="mx-auto lg:mx-0 text-3xl font-serif text-blue-600 col-span-4">
       <%= link_to 'ScrummyPoky 🂡', root_path %>
     </div>
-    <div>
-      <span class="text-blue-700">Invite Link</span>
-      <span class="select-all bg-gray-100 p-2 text-sm">
-        <%= request.url %>
-      </span>
+    <div class="" data-controller="clipboard" data-clipboard-copy-value="<%= request.url %>">
+      <button data-action="clipboard#copy" class="text-xl text-blue-700">Copy Link 📋</button>
     </div>
-    <div>
+    <div class="ml-auto">
       <%= render @user %>
     </div>
   </div>
