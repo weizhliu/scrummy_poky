@@ -5,7 +5,11 @@ export default class extends Controller {
   static targets = [ "notice" ]
 
   copy(event) {
-    navigator.clipboard.writeText(this.copyValue)
+    navigator.clipboard.writeText(this.copyValue).then(
+      ()=>{ this._append_notice(event) }
+    )
+  }
+  _append_notice(event) {
     const notice = `
       <span data-clipboard-target="notice" class="fixed ml-2 p-1 bg-white">
         Copied! ✅
