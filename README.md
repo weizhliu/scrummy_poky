@@ -1,24 +1,16 @@
-# README
+# ScrummyPoky
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Is another planning poker implementation.
 
-Things you may want to cover:
+Also a HOTWIRE tryout project.
 
-* Ruby version
 
-* System dependencies
 
-* Configuration
+### Ruby version
 
-* Database creation
+* ruby 3.0.0
 
-* Database initialization
+### System dependencies
 
-* How to run the test suite
+* Postgresql
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
