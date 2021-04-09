@@ -8,7 +8,7 @@ Also a HOTWIRE tryout project.
 
 ### Ruby version
 
-* ruby 3.0.0
+* ruby 3.0.1
 
 ### System dependencies
 
